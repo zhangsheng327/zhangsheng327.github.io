@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ML learning theory," />
 
 
 
@@ -108,15 +108,17 @@
 
 
 
-<meta name="description" content="Seeking a position as an engineer in the subfield of ML. Passionate about the applications of ML.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Enjoy life">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="正则化作为机器学习模型训练的重要手段，在实际工程中有十分广泛的应用，下面将从以下几个方面对正则化理解进而引申到模型的过拟合问题和解决方法。 正则化的理解从参数似然估计的角度来看，可以看做是对模型参数的先验估计。$$ p(\theta|S) = p(S|\theta)p(\theta) / p(S)$$其中$S={(x0,y0), (x1,y1),…}$为训练数据集。$\theta$为带估计模型参数">
+<meta name="keywords" content="ML learning theory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="regularization &amp; over-fitting">
+<meta property="og:url" content="http://yoursite.com/2017/05/20/regularization/index.html">
 <meta property="og:site_name" content="Enjoy life">
-<meta property="og:description" content="Seeking a position as an engineer in the subfield of ML. Passionate about the applications of ML.">
+<meta property="og:description" content="正则化作为机器学习模型训练的重要手段，在实际工程中有十分广泛的应用，下面将从以下几个方面对正则化理解进而引申到模型的过拟合问题和解决方法。 正则化的理解从参数似然估计的角度来看，可以看做是对模型参数的先验估计。$$ p(\theta|S) = p(S|\theta)p(\theta) / p(S)$$其中$S={(x0,y0), (x1,y1),…}$为训练数据集。$\theta$为带估计模型参数">
+<meta property="og:updated_time" content="2017-05-20T04:07:56.993Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Enjoy life">
-<meta name="twitter:description" content="Seeking a position as an engineer in the subfield of ML. Passionate about the applications of ML.">
+<meta name="twitter:title" content="regularization &amp; over-fitting">
+<meta name="twitter:description" content="正则化作为机器学习模型训练的重要手段，在实际工程中有十分广泛的应用，下面将从以下几个方面对正则化理解进而引申到模型的过拟合问题和解决方法。 正则化的理解从参数似然估计的角度来看，可以看做是对模型参数的先验估计。$$ p(\theta|S) = p(S|\theta)p(\theta) / p(S)$$其中$S={(x0,y0), (x1,y1),…}$为训练数据集。$\theta$为带估计模型参数">
 
 
 
@@ -144,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/20/regularization/"/>
 
 
 
 
 
-  <title>Enjoy life</title>
+  <title>regularization & over-fitting | Enjoy life</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -176,9 +178,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -271,9 +271,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -299,9 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/20/regularization/" itemprop="url">regularization & over-fitting</a></h1>
+          <h1 class="post-title" itemprop="name headline">regularization & over-fitting</h1>
         
 
         <div class="post-meta">
@@ -381,9 +379,7 @@
       
 
       
-        
-          
-            <p>正则化作为机器学习模型训练的重要手段，在实际工程中有十分广泛的应用，下面将从以下几个方面对正则化理解进而引申到模型的过拟合问题和解决方法。</p>
+        <p>正则化作为机器学习模型训练的重要手段，在实际工程中有十分广泛的应用，下面将从以下几个方面对正则化理解进而引申到模型的过拟合问题和解决方法。</p>
 <h2 id="正则化的理解"><a href="#正则化的理解" class="headerlink" title="正则化的理解"></a>正则化的理解</h2><p>从参数似然估计的角度来看，可以看做是对模型参数的先验估计。<br>$$ p(\theta|S) = p(S|\theta)p(\theta) / p(S)$$<br>其中$S={(x0,y0), (x1,y1),…}$为训练数据集。$\theta$为带估计模型参数，$p(\theta)$为模型关于参数的先验估计，即为正则化部分。<br>例如L2正则，即假设模型的参数服从高斯分布化简而来。此时模型的损失函数也由经验风险最小化转化为结构风险最小化模型。</p>
 <h2 id="正则化的作用"><a href="#正则化的作用" class="headerlink" title="正则化的作用"></a>正则化的作用</h2><ul>
 <li>正则化使得模型在数值上更容易求解。</li>
@@ -406,42 +402,79 @@
 <li>选择bagging类的增强方法（随机森林）。</li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ML-learning-theory/" rel="tag"># ML learning theory</a>
+          
+        </div>
+      
+
+      
+        
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -449,6 +482,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -468,8 +512,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/DSC_0007.JPG"
@@ -551,6 +604,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化的理解"><span class="nav-number">1.</span> <span class="nav-text">正则化的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化的作用"><span class="nav-number">2.</span> <span class="nav-text">正则化的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L1正则与L2正则的区别"><span class="nav-number">3.</span> <span class="nav-text">L1正则与L2正则的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#L1正则"><span class="nav-number">3.1.</span> <span class="nav-text">L1正则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L2正则"><span class="nav-number">3.2.</span> <span class="nav-text">L2正则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#w-大为何会过拟合的理解"><span class="nav-number">3.2.1.</span> <span class="nav-text">$w$大为何会过拟合的理解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#造成过拟合原因"><span class="nav-number">4.</span> <span class="nav-text">造成过拟合原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决过拟合的方法"><span class="nav-number">5.</span> <span class="nav-text">解决过拟合的方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -680,6 +749,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
@@ -697,6 +770,18 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/05/20/regularization/';
+          this.page.identifier = '2017/05/20/regularization/';
+          this.page.title = 'regularization & over-fitting';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
